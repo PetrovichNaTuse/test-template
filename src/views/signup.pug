@@ -1,0 +1,16 @@
+extends ./layout/layout
+include  ./mixins/panel
+
+block content
+    .container.container_limited
+        h1.page-title Регистрация
+        +panel('Введите номер карты')
+            form
+                .row
+                    .col-sm-5.form-group
+                        input.form-control(type='text', placeholder='123456789')
+                    .col-sm-3.form-group
+                        input.form-control(type='text', placeholder='1234')
+                .form-group
+                    button.btn.btn-primary Зарегистрироваться
+

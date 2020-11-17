@@ -1,0 +1,81 @@
+extends ./layout/layout
+include ./mixins/panel
+include ./mixins/radio
+include ./mixins/checkbox
+include ./mixins/modal
+
+block content
+    .container.container_limited
+        h1.page-title Личный кабинет
+        +panel('Редактирование профиля')
+            form.form
+                .d-list
+                    .d-list__row
+                        .d-list__label Фамилия
+                        .d-list__value
+                            input.form-control(type='text' placeholder='Иванов')
+                    .d-list__row
+                        .d-list__label Имя
+                        .d-list__value
+                            input.form-control(type='text' placeholder='Иван')
+                    .d-list__row
+                        .d-list__label Отчество
+                        .d-list__value
+                            input.form-control(type='text' placeholder='Иванович')
+                    .d-list__row
+                        .d-list__label Дата рождения
+                        .d-list__value
+                            input.form-control(type='text' placeholder='01.01.1988')
+                    .d-list__row
+                        .d-list__label Номер телефона
+                        .d-list__value
+                            input.form-control(type='text' placeholder='799012346821')
+                    .d-list__row
+                        .d-list__label Email
+                        .d-list__value
+                            input.form-control(type='email' placeholder='gg@gg.gg')
+                    .d-list__row
+                        .d-list__label Получать новости по Email
+                        .d-list__value
+                            +checkbox()
+                    .d-list__row
+                        .d-list__label Получать новости по SMS
+                        .d-list__value
+                            +checkbox()
+
+                .m-b-lg
+                    a(href='#' data-toggle='modal' data-target='#password').pseudo-link Сменить пароль
+                    .inline-divider
+                    a(href='#' data-toggle='modal' data-target='#email').pseudo-link Сменить e-mail
+
+                .form-group
+                    button.btn.btn-primary Сохранить
+
+    +modal('password', 'Сменить пароль')(class='modal-sm')
+        form
+            .form-group
+                label.control-label Старый пароль
+                input.form-control(type='password')
+            .form-group
+                label.control-label Новый пароль
+                input.form-control(type='password')
+            .form-group
+                label.control-label Новый пароль еще раз
+                input.form-control(type='password')
+            .m-t-lg
+                button.btn.btn-primary Сохранить
+                button.btn.m-l-sm(data-dismiss="modal") Отмена
+
+    +modal('email', 'Сменить Email')(class='modal-sm')
+        form
+            .form-group
+                label.control-label Новый Email
+                input.form-control(type='email')
+
+            .m-t-lg
+                button.btn.btn-primary Сохранить
+                button.btn.m-l-sm(data-dismiss="modal") Отмена
+
+block pageScripts
+    script(src='js/user.js')
+

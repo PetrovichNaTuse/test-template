@@ -1,0 +1,11 @@
+mixin checkbox(text, checked, inputName)
+    - var text = attributes.text ? attributes.text : ''
+    - var checked = attributes.checked ? attributes.checked : false
+    - var inputName = attributes.inputName ? attributes.inputName : 'text'
+    .checkbox(class=attributes.class)
+        label.js-checkbox
+            input(type="checkbox", checked=checked, name=inputName)
+            span.cr
+                span.cr-icon.glyphicon.glyphicon-ok
+            if text
+                span.checkbox__text !{text}

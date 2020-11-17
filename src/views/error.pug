@@ -1,0 +1,12 @@
+extends ./layout/static-layout
+include  ./mixins/panel
+
+block title
+    | Ошибка
+
+block content
+    .container.container_limited
+        +panel('Произошла ошибка :(')(class='panel_error')
+            p= message
+            if (message.code)
+                p= message.code

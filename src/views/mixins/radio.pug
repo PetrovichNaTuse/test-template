@@ -1,0 +1,11 @@
+mixin radio(text, checked, inputName)
+    - var text = attributes.text ? attributes.text : ''
+    - var checked = attributes.checked ? attributes.checked : false
+    - var inputName = attributes.inputName ? attributes.inputName : ''
+    .radio(class=attributes.class)
+        label.js-radio
+            input(type="radio", checked=checked, name=inputName)
+            span.cr
+                span.cr-icon
+            if text !=''
+                span.radio__text=text

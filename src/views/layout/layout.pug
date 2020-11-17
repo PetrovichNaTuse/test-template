@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title Лояльность - Dooglys
+        block head
+            link(href="//cdn.dooglys.net/fonts/roboto/fonts.css" rel="stylesheet")
+            link(href='//cdn.dooglys.net/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+            link(href=PREFIX_URL + '/css/vendor.css', rel='stylesheet', type='text/css')
+            link(href=PREFIX_URL + '/css/app.min.css', rel='stylesheet', type='text/css')
+            link(href=PREFIX_URL + '/css/style.css', rel='stylesheet', type='text/css')
+            script(src="//cdn.dooglys.net/jquery/3.2.1/js/jquery.min.js")
+            script(src='//cdn.dooglys.net/bootstrap/3.3.7/js/bootstrap.min.js')
+    body
+        .wrapper
+            #root
+            block content
+
+        if (token)
+            script.
+                var LOGO = "#{logo}";
+                var AGREEMENT = "#{agreement}";
+                var REQUIREMENTS = "#{requirements}";
+                var CSRF_TOKEN = "#{csrfToken}";
+                var CAPTCHA = "#{captcha}";
+                var APP_SETTINGS = JSON.parse(decodeURIComponent('#{settings}'));
+        script(src='https://www.google.com/recaptcha/api.js')
+        script(src=PREFIX_URL + '/js/vendor.js')
+        script(src=PREFIX_URL + '/js/app.js')
+        block pageScripts

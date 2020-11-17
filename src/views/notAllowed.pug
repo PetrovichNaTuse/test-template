@@ -1,0 +1,10 @@
+extends ./layout/static-layout
+
+block title
+    | Доступ запрещен
+block content
+    .page-error
+        if (sub)
+            h1  Доступ для субдомена &laquo;#{sub}&raquo; запрещен
+        else
+            h1 Доступ запрещен

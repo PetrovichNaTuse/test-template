@@ -1,0 +1,24 @@
+extends ./layout/layout
+include ./mixins/panel
+include ./mixins/radio
+include ./mixins/checkbox
+
+block content
+    .container
+        h1.page-title История операций
+        +panel()
+            table.table
+                thead
+                    tr
+                        th Дата и место покупки
+                        th Сумма покупки
+                        th Количество баллов
+                        th Баланс
+                tbody
+                    -var n = 10
+                    while n--
+                        tr
+                            td 25 августа 2017г., г. Нижний Новгород, Казанское шоссе, д. 5
+                            td 745 ₽
+                            td 30
+                            td 20

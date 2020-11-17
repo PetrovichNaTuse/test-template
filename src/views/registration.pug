@@ -1,0 +1,53 @@
+extends ./layout/layout
+include ./mixins/panel
+include ./mixins/radio
+include ./mixins/checkbox
+
+block content
+    .container.container_limited
+        h1.page-title Регистрация
+        +panel('Карта №1382742038461 1238')
+            form
+                .form-group
+                    input.form-control(type='text', placeholder='Фамилия')
+                .form-group
+                    input.form-control(type='text', placeholder='Имя')
+                .form-group
+                    input.form-control(type='text', placeholder='Отчество')
+                .form-group
+                    .row
+                        .col-sm-6
+                            label.control-label.m-b-n-xs.d-b Пол
+                            +radio(text='Женский', inputName='sex')
+                            +radio(text='Мужской', inputName='sex')
+                        .col-sm-6
+                            label.control-label Дата рождения
+                            .row
+                                .col-sm-3
+                                    input.form-control(type='text', placeholder='дд')
+                                .col-sm-3
+                                    input.form-control(type='text', placeholder='мм')
+                                .col-sm-4
+                                    input.form-control(type='text', placeholder='год')
+                .form-group
+                    input.form-control(type='email', placeholder='E-mail')
+                    +checkbox(text='Я согласен на получение Email сообщений о розыгрышах, новостях и призах.').form__input-note
+
+                .form-group
+                    input.form-control(type='text', placeholder='Мобильный телефон')
+                    +checkbox(text='Я согласен на получение SMS сообщений о розыгрышах, новостях и призах.').form__input-note
+
+                .form-group
+                    .row
+                        .col-sm-6
+                            input.form-control(type='password', placeholder='Пароль')
+                            .form__input-note Пароль должен быть длиной не менее 6 символов
+                        .col-sm-6
+                            input.form-control(type='password', placeholder='Повторите пароль')
+
+                .from-group
+                    +checkbox(text='Я согласен с правилами участия в клубе.')
+
+                .form-group
+                    button.btn.btn-primary Регистрация
+

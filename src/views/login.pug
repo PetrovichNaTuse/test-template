@@ -1,0 +1,15 @@
+extends ./layout/layout
+include  ./mixins/panel
+
+block content
+    .container.container_limited
+        h1.page-title Вход в личный кабинет
+        +panel()
+            form
+                .form-group
+                    input.form-control(type='text', placeholder='Логин')
+                .form-group
+                    input.form-control(type='password', placeholder='Пароль')
+                .form-group
+                    button.btn.btn-primary Войти
+                    a.m-l-sm(href='#') Забыли пароль?

@@ -1,0 +1,6 @@
+mixin panel(title)
+    .panel(class=attributes.class)
+        if title
+            h2.panel-heading= title
+        .panel-body
+            block
